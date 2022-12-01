@@ -32,13 +32,13 @@ export const Skills = () => {
 
     return (
         <section className="skill" id="skills">
-            <Continer>
+            <Container>
                 <Row>
                     <Col>
                         <div className="skill-box">
                             <h2>Skills</h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro esse, aut pariatur aspernatur quod, non adipisci veritatis optio vitae maxime, aliquid veniam labore rem fuga consequuntur. Nobis nihil fugit corrupti!</p>
-                            <Carouse responsive={responsive} infinite={true} className="skill-slider">
+                            <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <div className="item">
                                     <img src={meter1} alt="Image" />
                                     <h5>Web Development</h5>
@@ -57,11 +57,11 @@ export const Skills = () => {
                                 </div>  
                             
 
-                            </Carouse>
+                            </Carousel>
                         </div>
                     </Col>
                 </Row>
-            </Continer>
+            </Container>
             <img className="background-image-left" src={colorSharp}/>
         </section>
     )
