@@ -1,3 +1,4 @@
+import { response } from "express";
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
@@ -20,9 +21,25 @@ export const Contact = () => {
             [category]: value
         })
     }
-   const handleSubmit=()=>{
-        
-   }
+    const handleSubmit = async (e) => {
+     e.preventDefault();      
+     setButtonText('Sending...');
+     let respone=await fetch("http://localhost:5000/contact",{
+        method:"POST",
+        headers:{
+            "Content-Type":"Application/json;charset=utf-8",
+        },
+        body:JSON.stringify(formDetails),
+     });
+     setButtonText("send");
+     let result=response.json();
+     setFormDetails(formInitialDetails);  
+     if(result.code===200){
+        setStatus({success:true,message:"Message send successfully"});
+     }else{
+        setStatus({success:false,message:"Something went worng, please try again later"})
+     }   
+    }
     return (
         <section className="contact" id="connect">
             <Container>
@@ -56,7 +73,7 @@ export const Contact = () => {
                                 {
                                     status.message &&
                                     <Col>
-                                    <p className={status.sucsess=== false ? "danger" : "success"}>{status.message}</p>
+                                        <p className={status.sucsess === false ? "danger" : "success"}>{status.message}</p>
                                     </Col>
                                 }
                             </Row>
