@@ -39,7 +39,7 @@ export const Contact = () => {
      }else{
         setStatus({success:false,message:"Something went worng, please try again later"})
      }   
-    }
+    };
     return (
         <section className="contact" id="connect">
             <Container>

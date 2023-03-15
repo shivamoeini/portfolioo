@@ -38,8 +38,8 @@ router.post("/contact",(req,res)=>{
         to:"*******@gmil.com",
         subject:"Contact From Submission - Protfolio",
         html:`
-        <p>Name:${nme}</p>
-        <p>Email:${emil}</p>
+        <p>Name:${name}</p>
+        <p>Email:${email}</p>
         <p>Phone:${Phone}</p>
         <p>Messge:${message}</p>
         `
